@@ -1,0 +1,19 @@
+﻿{
+    "WindowAction": {
+        "ElementId": "WindowAction",
+        "ElementName": "WindowAction",
+        "Description": "WindowAction:Description",
+        "Usage": "WindowAction:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/WindowAction.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.WindowAction.WindowActionViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.WindowAction.WindowActionUserControl",
+        "ChildElementIds": []
+    }
+}

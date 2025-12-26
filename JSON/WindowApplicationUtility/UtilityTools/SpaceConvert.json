@@ -1,0 +1,19 @@
+﻿{
+    "SpaceConvert": {
+        "ElementId": "SpaceConvert",
+        "ElementName": "SpaceConvert",
+        "Description": "SpaceConvert:Description",
+        "Usage": "SpaceConvert:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/SpaceConvert.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.SpaceConvert.SpaceConvertViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.SpaceConvert.SpaceConvertUserControl",
+        "ChildElementIds": []
+    }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "LineTrim": {
+        "ElementId": "LineTrim",
+        "ElementName": "LineTrim",
+        "Description": "LineTrim:Description",
+        "Usage": "LineTrim:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineTrim.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineTrim.LineTrimViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineTrim.LineTrimUserControl",
+        "ChildElementIds": []
+    }
+}

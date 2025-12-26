@@ -1,0 +1,19 @@
+﻿{
+    "CharCount": {
+        "ElementId": "CharCount",
+        "ElementName": "CharCount",
+        "Description": "CharCount:Description",
+        "Usage": "CharCount:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/CharCount.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.CharCount.CharCountViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.CharCount.CharCountUserControl",
+        "ChildElementIds": []
+    }
+}

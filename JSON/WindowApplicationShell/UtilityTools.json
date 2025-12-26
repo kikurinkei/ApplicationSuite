@@ -1,0 +1,37 @@
+﻿{
+    "UtilityTools": {
+        "ElementId": "UtilityTools",
+        "ElementName": "UtilityTools",
+        "Description": "Provides a collection of tools including JSON management and file operations.",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Shell",
+        "Category": "Shell",
+        "Author": "鎌治",
+        "IconPath": "Icons/UtilityTools.png",
+        "ColorTheme": "Light",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Base.PrimaryBaseShell",
+        "ChildElementIds": [
+            "BaseViewModel",
+            "NavigationList",
+            "ManualLink",
+            "Dashboard",
+            "CharCount",
+            "LineNumbering",
+            "LinePrefix",
+            "LineReplaceRegex",
+            "LineReplaceLiteral",
+            "LineSort",
+            "LineSuffix",
+            "LineTrim",
+            "SpaceCompact",
+            "SpaceConvert",
+            "TestStringOperation",
+            "ErrorView",
+            "RegistryView",
+            "LogView",
+            "WindowAction"
+        ]
+    }
+}

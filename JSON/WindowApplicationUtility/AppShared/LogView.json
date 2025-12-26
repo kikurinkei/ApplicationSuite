@@ -1,0 +1,19 @@
+﻿{
+    "LogView": {
+        "ElementId": "LogView",
+        "ElementName": "LogView",
+        "Description": "LogView:Description",
+        "Usage": "LogView:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LogView.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.LogView.LogViewViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.LogView.LogViewUserControl",
+        "ChildElementIds": []
+    }
+}

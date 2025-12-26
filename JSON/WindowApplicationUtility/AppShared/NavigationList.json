@@ -1,0 +1,19 @@
+﻿{
+    "NavigationList": {
+        "ElementId": "NavigationList",
+        "ElementName": "NavigationList",
+        "Description": "",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "",
+        "ColorTheme": "Light",
+        "TypeFlags": 15,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.NavigationList.NavigationListViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.NavigationList.NavigationListUserControl",
+        "ChildElementIds": []
+    }
+}

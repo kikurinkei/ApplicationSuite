@@ -1,0 +1,19 @@
+﻿{
+  "ManualView": {
+    "ElementId": "ManualView",
+    "ElementName": "ManualView",
+    "Description": "ManualView:Description",
+    "Usage": "ManualView:Usage",
+    "Version": "1.0.0",
+    "LastUpdated": "2025-07-06",
+    "ElementType": "Utility",
+    "Category": "Utility",
+    "Author": "鎌治",
+    "IconPath": "Icons/ManualView.png",
+    "ColorTheme": "Light",
+    "TypeFlags": 31,
+    "ViewModelPath": "ApplicationSuite.WindowModules.SecondaryWindow.ManualView.ManualViewViewModel",
+    "ControlPath": "ApplicationSuite.WindowModules.SecondaryWindow.ManualView.ManualViewUserControl",
+    "ChildElementIds": []
+  }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "LineSort": {
+        "ElementId": "LineSort",
+        "ElementName": "LineSort",
+        "Description": "LineSort:Description",
+        "Usage": "LineSort:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineSort.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineSort.LineSortViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineSort.LineSortUserControl",
+        "ChildElementIds": []
+    }
+}

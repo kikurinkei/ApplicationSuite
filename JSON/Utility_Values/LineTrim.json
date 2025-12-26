@@ -1,0 +1,15 @@
+﻿{
+  "IntValues": {
+    "最大文字数": 200,
+    "最小文字数": 10
+  },
+  "StringValues": {
+    "初期ラベル": "初期ラベル"
+  },
+  "BoolValues": {
+    "ログ出力": true
+  },
+  "DecimalValues": {
+    "拡大率": 1.5
+  }
+}

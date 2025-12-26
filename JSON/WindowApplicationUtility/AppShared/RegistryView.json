@@ -1,0 +1,19 @@
+﻿{
+    "RegistryView": {
+        "ElementId": "RegistryView",
+        "ElementName": "RegistryView",
+        "Description": "RegistryView:Description",
+        "Usage": "RegistryView:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/RegistryView.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.RegistryView.RegistryViewViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.RegistryView.RegistryViewUserControl",
+        "ChildElementIds": []
+    }
+}

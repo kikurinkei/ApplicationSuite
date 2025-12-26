@@ -34,4 +34,20 @@
 
   <!-- ★重要：<Page ...> の ItemGroup は一切書かない（全部削除） -->
 
+  <!-- 実行フォルダ(bin)へ、ディレクトリ階層ごとコピーしたいリソース -->
+  <ItemGroup>
+    <!-- JSON 配下を全コピー（階層保持） -->
+    <Content Include="JSON\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+
+    <!-- ManualMD 配下を全コピー（階層保持） -->
+    <Content Include="ManualMD\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  
+  
 </Project>

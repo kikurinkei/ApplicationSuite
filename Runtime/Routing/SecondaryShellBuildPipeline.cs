@@ -21,9 +21,9 @@ namespace ApplicationSuite.Runtime.Service.Routing
         {
             /// Initialize Regist
 
-            // -1) PairingHub（GLOBAL）を 1回だけ用意（既にあれば何もしない）
-            //     ※PrimaryCompositeViewModel を作る前に呼ぶ
-            PairingHubBuilder.EnsureBuilt();
+            //// -1) PairingHub（GLOBAL）を 1回だけ用意（既にあれば何もしない）
+            ////     ※PrimaryCompositeViewModel を作る前に呼ぶ
+            //PairingHubBuilder.EnsureBuilt();
 
 
 

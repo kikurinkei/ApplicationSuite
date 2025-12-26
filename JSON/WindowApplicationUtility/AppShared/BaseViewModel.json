@@ -1,0 +1,19 @@
+﻿{
+    "BaseViewModel": {
+        "ElementId": "BaseViewModel",
+        "ElementName": "BaseViewModel",
+        "Description": "",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "",
+        "ColorTheme": "",
+        "TypeFlags": 9,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Base.BaseViewModel",
+        "ControlPath": "",
+        "ChildElementIds": []
+    }
+}

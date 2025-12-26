@@ -1,0 +1,28 @@
+﻿{
+    "PlayoffPredictor": {
+        "ElementId": "PlayoffPredictor",
+        "ElementName": "PlayoffPredictor",
+        "Description": "Use statistical models to analyze and forecast sports playoff outcomes.",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Shell",
+        "Category": "Shell",
+        "Author": "鎌治",
+        "IconPath": "Icons/PlayoffPredictor.png",
+        "ColorTheme": "Light",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Base.PrimaryBaseShell",
+        "ChildElementIds": [
+            "BaseViewModel",
+            "NavigationList",
+            "Dashboard",
+            "CharCount",
+            "LineTrim",
+            "LinePrefix",
+            "ErrorView",
+            "RegistryView",
+            "LogView",
+            "WindowAction"
+        ]
+    }
+}

@@ -1,0 +1,19 @@
+﻿{
+    "LinePrefix": {
+        "ElementId": "LinePrefix",
+        "ElementName": "LinePrefix",
+        "Description": "LinePrefix:Description",
+        "Usage": "LinePrefix:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LinePrefix.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LinePrefix.LinePrefixViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LinePrefix.LinePrefixUserControl",
+        "ChildElementIds": []
+    }
+}

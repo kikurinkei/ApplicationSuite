@@ -1,0 +1,19 @@
+﻿{
+    "ICompositeViewModel": {
+        "ElementId": "ICompositeViewModel",
+        "ElementName": "ICompositeViewModel",
+        "Description": "",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "",
+        "ColorTheme": "",
+        "TypeFlags": 0,
+        "ViewModelPath": "",
+        "ControlPath": "",
+        "ChildElementIds": []
+    }
+}

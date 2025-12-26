@@ -1,0 +1,19 @@
+﻿{
+    "Record": {
+        "ElementId": "Record",
+        "ElementName": "Record",
+        "Description": "Record:Description",
+        "Usage": "Record:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-09-07",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/Record.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Record.RecordViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Record.RecordUserControl",
+        "ChildElementIds": []
+    }
+}

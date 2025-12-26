@@ -1,0 +1,19 @@
+﻿{
+    "Download": {
+        "ElementId": "Download",
+        "ElementName": "Download",
+        "Description": "Download:Description",
+        "Usage": "Download:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-09-07",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/Download.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Download.DownloadViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Download.DownloadUserControl",
+        "ChildElementIds": []
+    }
+}

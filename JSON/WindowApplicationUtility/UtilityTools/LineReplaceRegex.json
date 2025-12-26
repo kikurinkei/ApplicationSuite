@@ -1,0 +1,19 @@
+﻿{
+    "LineReplaceRegex": {
+        "ElementId": "LineReplaceRegex",
+        "ElementName": "LineReplaceRegex",
+        "Description": "LineReplaceRegex:Description",
+        "Usage": "LineReplaceRegex:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineReplaceRegex.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineReplaceRegex.LineReplaceRegexViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineReplaceRegex.LineReplaceRegexUserControl",
+        "ChildElementIds": []
+    }
+}

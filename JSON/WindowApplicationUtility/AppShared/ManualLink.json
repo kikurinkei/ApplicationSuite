@@ -1,0 +1,19 @@
+﻿{
+    "ManualLink": {
+        "ElementId": "ManualLink",
+        "ElementName": "ManualLink",
+        "Description": "ManualLink:Description",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-08-30",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.ManualLink.ManualLinkViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.ManualLink.ManualLinkUserControl",
+        "ChildElementIds": []
+    }
+}

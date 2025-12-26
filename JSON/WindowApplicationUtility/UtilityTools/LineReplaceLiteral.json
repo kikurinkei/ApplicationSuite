@@ -1,0 +1,19 @@
+﻿{
+    "LineReplaceLiteral": {
+        "ElementId": "LineReplaceLiteral",
+        "ElementName": "LineReplaceLiteral",
+        "Description": "LineReplaceLiteral:Description",
+        "Usage": "LineReplaceLiteral:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineReplaceLiteral.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineReplaceLiteral.LineReplaceLiteralViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineReplaceLiteral.LineReplaceLiteralUserControl",
+        "ChildElementIds": []
+    }
+}

@@ -1,0 +1,22 @@
+﻿{
+  "SecondaryWindow": {
+    "ElementId": "SecondaryWindow",
+    "ElementName": "SecondaryWindow",
+    "Description": "SecondaryWindow Description",
+    "Usage": "",
+    "Version": "1.0.0",
+    "LastUpdated": "2025-08-28",
+    "ElementType": "Shell",
+    "Category": "Shell",
+    "Author": "鎌治",
+    "IconPath": "Icons/SecondaryWindow.png",
+    "ColorTheme": "Light",
+    "ControlPath": "ApplicationSuite.WindowModules.AppShared.Base.SecondaryBaseShell",
+    "ChildElementIds": [
+      "BaseViewModel",
+      "NavigationList",
+      "Dashboard",
+      "ManualView"
+    ]
+  }
+}

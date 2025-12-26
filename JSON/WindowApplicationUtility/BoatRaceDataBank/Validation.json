@@ -1,0 +1,19 @@
+﻿{
+    "Validation": {
+        "ElementId": "Validation",
+        "ElementName": "Validation",
+        "Description": "Validation:Description",
+        "Usage": "Validation:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-09-07",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/Validation.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Validation.ValidationViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.BoatRaceDataBank.Validation.ValidationUserControl",
+        "ChildElementIds": []
+    }
+}

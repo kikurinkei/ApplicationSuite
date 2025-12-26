@@ -1,0 +1,31 @@
+﻿{
+    "BoatRaceDataBank": {
+        "ElementId": "BoatRaceDataBank",
+        "ElementName": "BoatRace DataBank",
+        "Description": "BoatRaceのDataBank",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-09-07",
+        "ElementType": "Shell",
+        "Category": "Shell",
+        "Author": "鎌治",
+        "IconPath": "Icons/BoatRaceDataBank.png",
+        "ColorTheme": "Light",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Base.PrimaryBaseShell",
+        "ChildElementIds": [
+            "BaseViewModel",
+            "NavigationList",
+            "ManualLink",
+            "Dashboard",
+            "Download",
+            "Extract",
+            "Validation",
+            "Record",
+            "Insert",
+            "ErrorView",
+            "RegistryView",
+            "LogView",
+            "WindowAction"
+        ]
+    }
+}

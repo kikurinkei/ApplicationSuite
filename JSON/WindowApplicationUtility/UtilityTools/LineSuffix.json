@@ -1,0 +1,19 @@
+﻿{
+    "LineSuffix": {
+        "ElementId": "LineSuffix",
+        "ElementName": "LineSuffix",
+        "Description": "LineSuffix:Description",
+        "Usage": "LineSuffix:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineSuffix.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineSuffix.LineSuffixViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineSuffix.LineSuffixUserControl",
+        "ChildElementIds": []
+    }
+}

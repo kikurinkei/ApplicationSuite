@@ -1,0 +1,19 @@
+﻿{
+    "SpaceCompact": {
+        "ElementId": "SpaceCompact",
+        "ElementName": "SpaceCompact",
+        "Description": "SpaceCompact:Description",
+        "Usage": "SpaceCompact:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/SpaceCompact.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.SpaceCompact.SpaceCompactViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.SpaceCompact.SpaceCompactUserControl",
+        "ChildElementIds": []
+    }
+}

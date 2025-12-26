@@ -1,0 +1,19 @@
+﻿{
+    "ErrorView": {
+        "ElementId": "ErrorView",
+        "ElementName": "ErrorView",
+        "Description": "ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ErrorView:Description ",
+        "Usage": "ErrorView:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/ErrorView.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.ErrorView.ErrorViewViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.ErrorView.ErrorViewUserControl",
+        "ChildElementIds": []
+    }
+}

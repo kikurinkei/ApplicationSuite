@@ -1,0 +1,19 @@
+﻿{
+    "LineNumbering": {
+        "ElementId": "LineNumbering",
+        "ElementName": "LineNumbering",
+        "Description": "LineNumbering:Description",
+        "Usage": "LineNumbering:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/LineNumbering.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.LineNumbering.LineNumberingViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.LineNumbering.LineNumberingUserControl",
+        "ChildElementIds": []
+    }
+}

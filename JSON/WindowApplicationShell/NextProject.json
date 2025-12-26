@@ -1,0 +1,28 @@
+﻿{
+    "NextProject": {
+        "ElementId": "NextProject",
+        "ElementName": "Next Project",
+        "Description": "Plan and organize upcoming development projects effectively.",
+        "Usage": "",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Shell",
+        "Category": "Shell",
+        "Author": "鎌治",
+        "IconPath": "Icons/NextProject.png",
+        "ColorTheme": "Light",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Base.PrimaryBaseShell",
+        "ChildElementIds": [
+            "BaseViewModel",
+            "NavigationList",
+            "Dashboard",
+            "CharCount",
+            "LineTrim",
+            "LinePrefix",
+            "ErrorView",
+            "RegistryView",
+            "LogView",
+            "WindowAction"
+        ]
+    }
+}

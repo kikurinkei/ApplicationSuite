@@ -1,0 +1,19 @@
+﻿{
+    "Dashboard": {
+        "ElementId": "Dashboard",
+        "ElementName": "Dashboard",
+        "Description": "Dashboard:Description",
+        "Usage": "Dashboard:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Core",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/Dashboard.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.AppShared.Utilities.Dashboard.DashboardViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.AppShared.Utilities.Dashboard.DashboardUserControl",
+        "ChildElementIds": []
+    }
+}

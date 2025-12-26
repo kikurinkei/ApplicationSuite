@@ -1,0 +1,23 @@
+﻿{
+  "WindowApplicationSuite": {
+    "ElementId": "WindowApplicationSuite",
+    "ElementName": "WindowApplicationSuite",
+    "Description": "アプリ全体のルート構成要素",
+    "Usage": "",
+    "Version": "1.0.0",
+    "LastUpdated": "2025-07-06",
+    "ElementType": "Suite",
+    "Category": "Root",
+    "Author": "鎌治",
+    "IconPath": "",
+    "ColorTheme": "",
+    "ManualRootDir": "ManualMD",
+    "ChildElementIds": [
+      "BoatRaceDataBank",
+      "UtilityTools",
+      "NextProject",
+      "PlayoffPredictor",
+      "SecondaryWindow"
+    ]
+  }
+}

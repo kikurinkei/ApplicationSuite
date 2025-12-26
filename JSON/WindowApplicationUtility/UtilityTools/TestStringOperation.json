@@ -1,0 +1,19 @@
+﻿{
+    "TestStringOperation": {
+        "ElementId": "TestStringOperation",
+        "ElementName": "TestStringOperation",
+        "Description": "TestStringOperation:Description",
+        "Usage": "TestStringOperation:Usage",
+        "Version": "1.0.0",
+        "LastUpdated": "2025-07-06",
+        "ElementType": "Utility",
+        "Category": "Utility",
+        "Author": "鎌治",
+        "IconPath": "Icons/TestStringOperation.png",
+        "ColorTheme": "Light",
+        "TypeFlags": 31,
+        "ViewModelPath": "ApplicationSuite.WindowModules.UtilityTools.TestStringOperation.TestStringOperationViewModel",
+        "ControlPath": "ApplicationSuite.WindowModules.UtilityTools.TestStringOperation.TestStringOperationUserControl",
+        "ChildElementIds": []
+    }
+}
