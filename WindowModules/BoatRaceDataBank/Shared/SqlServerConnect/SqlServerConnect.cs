@@ -15,7 +15,7 @@
 //                "Data Source=Z390-PRO4\\SQLEXPRESS;" +
 //                "Initial Catalog=BR;" +
 //                "User ID=sa;" +
-//                "Password=19860314;" +
+//                "Password=XXXXXXXX;" +
 //                "TrustServerCertificate=True;";
 
 //            // ★ 実行する SELECT クエリ（サンプルとして SomeTable の最初の 10 行を取得）

@@ -29,7 +29,7 @@ namespace ApplicationSuite.WindowModules.BoatRaceDataBank.Shared.SqlServerConnec
                 "Server=localhost;" +
                 "Database=BRDB;" +
                 "User ID=sa;" +
-                "Password=sa19860314;" +
+                "Password=sa1XXXXXXX4;" +
                 "TrustServerCertificate=True;"; // 開発環境向け。運用では証明書要検討。
 
             // ★テスト用SQL
