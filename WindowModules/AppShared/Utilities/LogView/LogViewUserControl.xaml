@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="ApplicationSuite.WindowModules.AppShared.Utilities.LogView.LogViewUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ApplicationSuite.WindowModules.AppShared.Utilities.LogView"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- カテゴリトグル -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <ToggleButton Content="ViewModel" IsChecked="{Binding IsViewModelOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="UserControl" IsChecked="{Binding IsUserControlOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="DataTemplate" IsChecked="{Binding IsDataTemplateOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="Composite" IsChecked="{Binding IsCompositeOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="Navigation" IsChecked="{Binding IsNavigationOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="Injector" IsChecked="{Binding IsInjectorOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="Window" IsChecked="{Binding IsWindowOn, Mode=TwoWay}" Margin="4"/>
+            <ToggleButton Content="その他" IsChecked="{Binding IsOtherOn, Mode=TwoWay}" Margin="4"/>
+        </StackPanel>
+
+        <!-- テキスト検索 -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <TextBox Width="300"
+                     Margin="4"
+                     Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+        <!-- ログ表示 -->
+        <ScrollViewer Grid.Row="2"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+            <TextBox Text="{Binding LogText, Mode=OneWay}"
+         IsReadOnly="True"
+         TextWrapping="Wrap"
+         AcceptsReturn="True"
+         VerticalScrollBarVisibility="Auto"
+         HorizontalScrollBarVisibility="Auto"
+         FontFamily="Consolas"
+         FontSize="12"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

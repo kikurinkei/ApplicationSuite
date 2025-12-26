@@ -1,0 +1,48 @@
+﻿関数カタログ
+==================================================
+
+namespace ApplicationSuite.WindowModules.UtilityTools.Shared.Diagnostics
+--------------------------------------------------
+public readonly struct StopwatchScope : IDisposable
+  public StopwatchScope(Action<TimeSpan>? onDispose)
+  説明文：
+--------------------------------------------------
+
+namespace ApplicationSuite.WindowModules.UtilityTools.Shared.Parallelization
+--------------------------------------------------
+public static class LineMapReduce
+  public static string[] SplitToLines(string input)
+  説明: 改行コード \r\n / \n を正規化して行配列に分割。
+        末尾改行は削除。入力が null/空なら空配列を返す。
+  public static string[] MapOrdered(string[] lines, Func<string, string> perLine)
+  説明: 行配列をインデックス順に並列処理する。
+        各行に perLine を適用し、順序を保持して返す。
+        スレッドセーフ、例外は呼び元に投げる。
+  public static string JoinLines(string[] lines)
+  説明: 行配列を結合して単一の文字列に戻す。
+        各行の間に Environment.NewLine を挿入する。
+        最後の行の後には改行を追加しない（初稿仕様）。
+--------------------------------------------------
+
+namespace ApplicationSuite.WindowModules.UtilityTools.Shared.Parallelization
+--------------------------------------------------
+public static class Partitioner
+  public static (int start, int end)[] EvenRanges(int total, int parts)
+  説明: 総要素数 total を parts 等分し、開始/終了インデックス範囲を返す。
+        分割数が total を超える場合は total に丸める。
+        余りは前方の範囲に +1 ずつ割り振る。
+--------------------------------------------------
+
+namespace ApplicationSuite.WindowModules.UtilityTools.Shared.TextOps
+--------------------------------------------------
+public static class LineOps
+  public static string AddPrefixToLine(string line, string prefix)
+  説明: 行頭に prefix を追加する。
+        prefix が空文字の場合は入力をそのまま返す。
+  public static string RemovePrefixFromLine(string line, string prefix)
+  説明: 行頭が prefix と一致する場合のみ除去する。
+        大小・全半角は区別。prefix が空文字の場合は入力そのまま。
+  public static string TogglePrefixLine(string line, string prefix)
+  説明: 行頭が prefix の場合は除去、それ以外は prefix を追加。
+        prefix が空文字の場合は入力そのまま。
+==================================================

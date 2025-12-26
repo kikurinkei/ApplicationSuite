@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="ApplicationSuite.WindowModules.BoatRaceDataBank.Download.DownloadUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- 上：対象（URL一覧など） -->
+            <RowDefinition Height="Auto"/>
+            <!-- 中：トグル＋共有ステータス -->
+            <RowDefinition Height="Auto"/>
+            <!-- 操作ボタン -->
+            <RowDefinition Height="*"/>
+            <!-- 下：結果ログ -->
+        </Grid.RowDefinitions>
+
+        <!-- 上：対象（URL一覧を表示） -->
+        <TextBox Grid.Row="0"
+                 Text="{Binding FirstText, UpdateSourceTrigger=PropertyChanged}"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="96" />
+
+        <!-- 中：トグル（RP/RR）＋ 共有ステータス（最終日／対象レンジ） -->
+        <Border Grid.Row="1" Margin="0,8,0,8" Padding="8"
+                CornerRadius="6"
+                Background="#FFF7F7F7" BorderBrush="#FFE0E0E0" BorderThickness="1">
+            <DockPanel>
+                <!-- トグル：左寄せ -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left" Margin="0,0,16,0">
+                    <RadioButton Content="RP" Margin="0,0,8,0"
+                                 IsChecked="{Binding IsRpActive, Mode=TwoWay}"/>
+                    <RadioButton Content="RR"
+                                 IsChecked="{Binding IsRrActive, Mode=TwoWay}"/>
+                </StackPanel>
+
+                <!-- 共有ステータス：右側 -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,16,0">
+                        <TextBlock Text="最終日:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                        <TextBlock Text="{Binding SharedLastDateText}"
+                                   FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="対象日:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                        <TextBlock Text="{Binding SharedRangePreview}"
+                                   FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- 操作ボタン（共通3つ＋初期化） -->
+        <ListBox Grid.Row="2"
+                 ItemsSource="{Binding OperationItems}"
+                 SelectedItem="{Binding SelectedOperation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,0,8,0" Padding="6" CornerRadius="6"
+                            Background="#FFEEEEEE" BorderBrush="#FFCCCCCC" BorderThickness="1"
+                            MinWidth="112" MinHeight="28" Cursor="Hand">
+                        <Grid>
+                            <TextBlock Text="{Binding DisplayText}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- 下：結果ログ -->
+        <TextBox Grid.Row="3"
+                 Margin="0,8,0,0"
+                 Text="{Binding SecondText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</UserControl>
+
+
+<!--<UserControl x:Class="ApplicationSuite.WindowModules.BoatRaceDataBank.Download.DownloadUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        --><!-- 上：URL一覧など“対象表示” --><!--
+        <TextBox Grid.Row="0"
+                 Text="{Binding FirstText, UpdateSourceTrigger=PropertyChanged}"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="96" />
+
+        --><!-- 共有のステータス（最終日／対象レンジ） --><!--
+        <Border Grid.Row="1" Margin="0,8,0,8" Padding="8"
+                CornerRadius="6"
+                Background="#FFF7F7F7" BorderBrush="#FFE0E0E0" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,0,16,0">
+                    <TextBlock Text="最終日:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    --><!-- ★ 共有化：Active に応じて RP/RR のどちらかを表示 --><!--
+                    <TextBlock Text="{Binding SharedLastDateText}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="対象日:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                    --><!-- ★ 共有化：Active に応じて RP/RR のどちらかを表示 --><!--
+                    <TextBlock Text="{Binding SharedRangePreview}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        --><!-- 操作ボタン群 --><!--
+        <ListBox Grid.Row="2"
+                 ItemsSource="{Binding OperationItems}"
+                 SelectedItem="{Binding SelectedOperation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,0,8,0" Padding="6" CornerRadius="6"
+                            Background="#FFEEEEEE" BorderBrush="#FFCCCCCC" BorderThickness="1"
+                            MinWidth="96" MinHeight="28" Cursor="Hand">
+                        <Grid>
+                            <TextBlock Text="{Binding DisplayText}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        --><!-- 下：結果ログ --><!--
+        <TextBox Grid.Row="3"
+                 Margin="0,8,0,0"
+                 Text="{Binding SecondText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</UserControl>-->

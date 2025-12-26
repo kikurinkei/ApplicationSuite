@@ -1,0 +1,241 @@
+﻿// FILE: WindowModules/SecondaryWindow/ManualView/ViewModels/ManualViewViewModel.cs
+// ROLE: ManualView（Secondary）の最小VM。UI⇄Registryの橋渡しのみを担当。
+// SCOPE: 外部（Primary/Relay/FS/DB）には一切依存しない。ManualDocumentRegistry だけを利用。
+// NOTE: 余分・置換候補にはマーカーを付与（//---- ここ余分 ---- / //---- ここ余分（置換候補） ----）。
+
+using ApplicationSuite.Runtime.Pairing; // ManualDocumentRegistry
+using ApplicationSuite.WindowModules.AppShared.Base;
+using ApplicationSuite.WindowModules.SecondaryWindow.ManualView.Registry;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+
+// 同一名前空間内のため using 省略
+
+namespace ApplicationSuite.WindowModules.SecondaryWindow.ManualView
+{
+    public class ManualViewViewModel : BaseViewModel, INotifyPropertyChanged
+    {
+        // ========== 基本プロパティ（VM文脈） ==========
+
+        public string PairedWindowUniqueId { get; set; } = string.Empty;   // Primary の相手ID
+
+        // PairedSelectedElementId
+        private string _PairedSelectedElementId = string.Empty;
+        public string PairedSelectedElementId
+        {
+            get => _PairedSelectedElementId;
+            set => SetProperty(ref _PairedSelectedElementId, value);
+        }
+
+
+        // Realtime/AutoScroll は UI のトグルと一致（初期ON）
+        private bool _isRealtimeSyncEnabled = true;
+        public bool IsRealtimeSyncEnabled
+        {
+            get => _isRealtimeSyncEnabled;
+            set => SetProperty(ref _isRealtimeSyncEnabled, value);
+        }
+
+        private bool _autoScrollEnabled = true;
+        public bool AutoScrollEnabled
+        {
+            get => _autoScrollEnabled;
+            set
+            {
+                if (SetProperty(ref _autoScrollEnabled, value))
+                {
+                    // OFF→ON のときだけ、Pending を一度だけ適用
+                    if (_autoScrollEnabled && !string.IsNullOrEmpty(PendingAnchorId))
+                    {
+                        ScrollTo(PendingAnchorId);
+                        PendingAnchorId = null;
+                    }
+                }
+            }
+        }
+
+        // ========== ドキュメント状態 ==========
+        private string _currentDocId = "UtilityTools.md";
+        public string CurrentDocId
+        {
+            get => _currentDocId;
+            set
+            {
+                if (SetProperty(ref _currentDocId, value))
+                {
+                    LoadDocument(_currentDocId);
+                }
+            }
+        }
+
+        private string _currentContent = "";
+        public string CurrentContent
+        {
+            get => _currentContent;
+            set => SetProperty(ref _currentContent, value);
+        }
+
+        private List<string> _anchors = new List<string>();
+        public List<string> Anchors
+        {
+            get => _anchors;
+            set => SetProperty(ref _anchors, value);
+        }
+
+        // AutoScroll が OFF のときだけ一時保持
+        public string? PendingAnchorId { get; private set; } = null;
+
+        /// <summary>スクロール先文字インデックス（Behavior が監視）。</summary>
+        private int _scrollTargetIndex = -1;
+
+        // ========== コマンド（XAML連携） ==========
+        // SaveCommand, JumpToAnchorCommand を set 可能な自動プロパティに修正
+        public ICommand SaveCommand { get; private set; }
+        public ICommand JumpToAnchorCommand { get; private set; }
+
+        //---- ここ余分（置換候補） ----
+        // プロジェクトに共通の RelayCommand 実装があるなら、それに置き換えてください。
+        private sealed class RelayCommand : ICommand
+        {
+            private readonly Action<object?> _execute;
+            private readonly Func<object?, bool>? _canExecute;
+            public RelayCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
+            { _execute = execute; _canExecute = canExecute; }
+            public bool CanExecute(object? parameter) => _canExecute?.Invoke(parameter) ?? true;
+            public void Execute(object? parameter) => _execute(parameter);
+            public event EventHandler? CanExecuteChanged { add { } remove { } }
+        }
+        //---- ここ余分（置換候補） ----
+
+
+        /// <summary>
+        /// 手動初期化の受け口。Pipeline 側から windowUniqueId を渡して呼ぶことを想定。
+        /// コンストラクタにロジックを置かないプロジェクト方針に合わせたメソッド。
+        /// </summary>
+        public void InitializeFromSetting(string windowUniqueId)
+        {
+            WindowUniqueId = windowUniqueId;
+
+            // 初期ロード
+            LoadDocument(_currentDocId);
+
+            // コマンド
+            SaveCommand = new RelayCommand(_ => SaveDocument());
+            // XAML側が CommandParameter で anchorId を渡す前提（例：SelectedAnchor やバインド値）
+            JumpToAnchorCommand = new RelayCommand(param =>
+            {
+                var anchorId = param as string;
+                if (!string.IsNullOrWhiteSpace(anchorId))
+                {
+                    JumpToAnchor(anchorId!);
+                }
+            });
+
+        }
+
+        //public ManualViewViewModel()
+        //{
+        //    // 初期ロード
+        //    LoadDocument(_currentDocId);
+
+        //    // コマンド
+        //    SaveCommand = new RelayCommand(_ => SaveDocument());
+        //    // XAML側が CommandParameter で anchorId を渡す前提（例：SelectedAnchor やバインド値）
+        //    JumpToAnchorCommand = new RelayCommand(param =>
+        //    {
+        //        var anchorId = param as string;
+        //        if (!string.IsNullOrWhiteSpace(anchorId))
+        //        {
+        //            JumpToAnchor(anchorId!);
+        //        }
+        //    });
+        //}
+
+        // ========== Public：Relay からの唯一の受け口 ==========
+        /// <summary>
+        /// Relay（や外部）からの anchor 指定適用。AutoScroll が OFF のときは Pending に保持。
+        /// </summary>
+        public void ApplyElementId(string parentId, string anchorId)
+        {
+            // 文脈更新（相手IDが変わるケースも想定）
+            if (!string.IsNullOrEmpty(parentId))
+                PairedWindowUniqueId = parentId;
+
+            if (string.IsNullOrWhiteSpace(anchorId))
+                return;
+
+            if (AutoScrollEnabled)
+            {
+                ScrollTo(anchorId);
+                PendingAnchorId = null;
+            }
+            else
+            {
+                PendingAnchorId = anchorId;
+            }
+        }
+
+        // ========== Public：UI 操作 ==========
+        public void LoadDocument(string docId)
+        {
+            // 例外方針：登録が無ければ ManualDocumentRegistry 側で例外（Seed を追加して対応）
+            var content = ManualDocumentRegistry.Instance.Get(docId);
+            var anchors = ManualDocumentRegistry.Instance.GetAnchors(docId);
+
+            CurrentContent = content;
+            Anchors = anchors ?? new List<string>();
+
+            // ドキュメント切替時は Pending をクリア
+            PendingAnchorId = null;
+            OnPropertyChanged(nameof(CurrentDocId));
+        }
+
+        public void SaveDocument()
+        {
+            ManualDocumentRegistry.Instance.Set(CurrentDocId, CurrentContent);
+        }
+
+        public void JumpToAnchor(string anchorId)
+        {
+            // 明示操作は AutoScroll に関係なく必ずジャンプ
+            ScrollTo(anchorId);
+            PendingAnchorId = null;
+        }
+
+        // ========== Private：内部ヘルパー ==========
+        private void ScrollTo(string anchorId)
+        {
+            // ここでは「位置決めの実処理」は既存 Behavior / OnSelected に委譲してください。
+            // 例）AnchorResolver や ScrollToIndexBehavior を経由してスクロールを実施する。
+            // 具体的な紐付けは現場合せで置換してOK。
+
+
+            // OnSelected(parentId, elementId) など既存のフックがあるなら、そこへ委譲してください。
+            OnSelected(PairedWindowUniqueId, anchorId);
+        }
+
+        /// <summary>
+        /// 既存の ManualView 実装に合わせてフック。anchor 反映の最終入口を1つに寄せる。
+        /// </summary>
+        public void OnSelected(string parentId, string anchorId)
+        {
+            // View 側の Behavior / Handler がここを監視してスクロールする前提に統一。
+            // この VM 内では「現在の anchor が何か」を通知するだけに留めるのが安全。
+            _lastAppliedParentId = parentId;
+            _lastAppliedAnchorId = anchorId;
+            OnPropertyChanged(nameof(LastAppliedParentId));
+            OnPropertyChanged(nameof(LastAppliedAnchorId));
+        }
+
+        // ---- View/Behavior 側が監視する読み取り専用プロパティ（通知用途） ----
+        private string _lastAppliedParentId = "";
+        public string LastAppliedParentId => _lastAppliedParentId;
+
+        private string _lastAppliedAnchorId = "";
+        public string LastAppliedAnchorId => _lastAppliedAnchorId;
+
+    }
+}

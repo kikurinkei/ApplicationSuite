@@ -1,0 +1,90 @@
+﻿<!--
+SUMMARY (FIX):
+- RowDefinitions を属性ではなくコレクション要素で定義（WPF 正式記法）。
+-->
+<UserControl x:Class="ApplicationSuite.WindowModules.UtilityTools.LineSuffix.LineSuffixUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <Grid Margin="8">
+        <!-- RowDefinitions: 4行（入力/Prefix/ボタン群/出力） -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 入力テキスト -->
+        <TextBox Grid.Row="0"
+                 Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}" 
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="120" />
+
+        <!-- Prefix 入力 -->
+        <DockPanel Grid.Row="1"
+                   Margin="0,8,0,8">
+            <TextBlock Text="Prefix:"
+                       VerticalAlignment="Center"
+                       Margin="0,0,8,0"/>
+            <TextBox Text="{Binding Suffix, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+        </DockPanel>
+
+        <!-- ボタン風リスト（Add/Remove/Toggle） -->
+        <ListBox Grid.Row="2"
+                 ItemsSource="{Binding OperationItems}"
+                 SelectedItem="{Binding SelectedOperation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 BorderThickness="0"
+                 Background="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="0,0,8,0"
+                        Padding="6"
+                        CornerRadius="6"
+                        Background="#FFEEEEEE"
+                        BorderBrush="#FFCCCCCC"
+                        BorderThickness="1"
+                        IsHitTestVisible="True"
+                        IsEnabled="True"
+                        MinWidth="72"
+                        MinHeight="28"
+                        Cursor="Hand"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        ToolTip="操作">
+                        <Grid>
+                            <TextBlock
+                                Foreground="Black"
+                                FontSize="14"
+                                FontWeight="Normal"
+                                FontFamily="Meiryo UI"
+                                TextWrapping="NoWrap"
+                                TextAlignment="Center"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0"
+                                Text="{Binding DisplayText}"  />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- 出力テキスト -->
+        <TextBox Grid.Row="3"
+                 Margin="0,8,0,0"
+                 Text="{Binding OutputText, Mode=TwoWay}"
+                 AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</UserControl>

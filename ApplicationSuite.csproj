@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <!-- フォルダ見た目用（任意）。ここは残してOK -->
+  <ItemGroup>
+    <Folder Include="AppGenerator\Resolution\" />
+    <Folder Include="AppGenerator\Composition\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Record\Bv1\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Record\Bv2\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Record\Kv2\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Record\Kv3\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Store\Migrations\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Store\Mapping\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Store\Validate\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Store\Ops\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Validation\Kv2\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Validation\Kv3\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Validation\Bv1\" />
+    <Folder Include="WindowModules\BoatRaceDataBank\Validation\Bv2\" />
+    <Folder Include="WindowModules\NextProject\" />
+    <Folder Include="WindowModules\PlayoffPredictor\" />
+    <Folder Include="WindowModules\_Log%28予定%29\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+  </ItemGroup>
+
+  <!-- ★重要：<Page ...> の ItemGroup は一切書かない（全部削除） -->
+
+</Project>

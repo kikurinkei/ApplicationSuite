@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="ApplicationSuite.WindowModules.AppShared.Utilities.ManualLink.ManualLinkUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="30"
+             d:DesignWidth="80">
+    <!--
+        ManualLink: 右上に配置される極小リンク部品（見た目は Button、テキストは "Manual" 固定）
+        - DataContext は外部（Builder/Template）から注入される前提。ここでは設定しない。
+        - コードビハインドにロジックは置かない。
+    -->
+    <Grid>
+        <Button Content="Manual"
+                Padding="4,2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0"
+                Command="{Binding OpenManualCommand}"
+                CommandParameter="{Binding WindowUniqueId}"
+                ToolTip="Open Manual Window"
+                Cursor="Hand"
+                />
+    </Grid>
+</UserControl>
