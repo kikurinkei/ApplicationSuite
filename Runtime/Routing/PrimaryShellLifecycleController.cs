@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ApplicationSuite.Runtime.Windowing.Close;
 
 namespace ApplicationSuite.Runtime.Service.Routing
 {
@@ -18,7 +19,7 @@ namespace ApplicationSuite.Runtime.Service.Routing
         /// - RESTART : shellId 必須（再OPEN対象）
         /// - SHUTDOWN: 必須なし
         /// </summary>
-        public static void HandleWindowLifecycle(
+        public static bool HandleWindowLifecycle(
             string status,
             string shellId,
             string windowUniqueId,
@@ -35,7 +36,7 @@ namespace ApplicationSuite.Runtime.Service.Routing
                             if (string.IsNullOrWhiteSpace(shellId))
                             {
                                 Console.WriteLine("[PrimaryShellLifecycleController] OPEN: shellId is empty.");
-                                return;
+                                return false;
                             }
 
                             // OPEN では windowUniqueId 未指定ならここで生成
@@ -50,44 +51,38 @@ namespace ApplicationSuite.Runtime.Service.Routing
                                 null,
                                 null
                                 );
-                            break;
+                            return true; 
                         }
-
                     case "CLOSE":
-                        {
-                            // CLOSE は windowUniqueId が閉じる対象（shellId を流用しない）
-                            if (string.IsNullOrWhiteSpace(windowUniqueId))
-                            {
-                                Console.WriteLine("[PrimaryShellLifecycleController] CLOSE: windowUniqueId is empty.");
-                                return;
-                            }
-
-                            Windowing.Close.WindowCloseProc.Process(status, windowUniqueId);
-                            break;
-                        }
+                        // 実務担当（Sequencer）を呼び出し、その結果をそのまま Shell へ return する
+                        return ShellCloseSequencer.PrepareForShutdown(windowUniqueId);
 
                     case "RESTART":
                         {
                             if (string.IsNullOrWhiteSpace(shellId))
                             {
                                 Console.WriteLine("[PrimaryShellLifecycleController] RESTART: shellId is empty.");
-                                return;
+                                return false; 
                             }
 
                             Windowing.Close.RestartRequestProc.Process(status, shellId);
-                            break;
+                            return true;
+                            
                         }
 
                     case "SHUTDOWN":
                         {
                             Windowing.Close.ShutdownRequestProc.Execute(status);
-                            break;
+                            return true;
+                            
                         }
 
                     default:
                         {
                             Console.WriteLine($"[PrimaryShellLifecycleController] 未定義のステータス: {status}");
-                            break;
+                            // 想定外のステータスも、ひとまず「処理継続OK」として true を返す
+                            // （ここで false を返すと BaseShell が閉じられなくなるため安全側に倒す）
+                            return true;
                         }
                 }
             }
@@ -104,7 +99,12 @@ namespace ApplicationSuite.Runtime.Service.Routing
                     category: $"-{categoryCore}--",
                     message: ex.Message
                 );
+                // --- ここが重要！ ---
+                // 例外が発生した（失敗した）ので、false を返して BaseShell に「閉じちゃダメだ」と伝えます
+                return false;
             }
+            // 万が一 switch を通り抜けた場合のための保険（通常はここには来ません）
+            return true;
         }
     }
 }
